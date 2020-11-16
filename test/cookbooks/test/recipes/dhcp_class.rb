@@ -8,6 +8,7 @@ dhcp_class 'RegisteredHosts' do
     '1:10:bf:48:42:55:01',
     '1:10:bf:48:42:55:02',
   ]
+  notifies :restart, 'dhcp_service[dhcpd]', :delayed
 end
 
 dhcp_class 'UnregisteredHosts' do
@@ -41,4 +42,5 @@ dhcp_subnet 'deny host from class' do
     'deny' => 'members of "RegisteredHosts"',
     'allow' => 'members of "UnregisteredHosts"'
   )
+  notifies :restart, 'dhcp_service[dhcpd]', :delayed
 end

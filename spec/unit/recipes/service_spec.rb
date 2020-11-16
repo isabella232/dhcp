@@ -18,7 +18,7 @@ describe 'dhcp_service' do
     describe 'enables and starts dhcpd' do
       it { is_expected.to enable_service('dhcpd') }
       it { is_expected.to start_service('dhcpd') }
-      it { is_expected.to_not run_execute('Run pre service start dhcpd configuration test.') }
+      it { is_expected.to_not run_ruby_block('Run pre service start dhcpd configuration test.') }
     end
   end
 
@@ -37,7 +37,7 @@ describe 'dhcp_service' do
     describe 'enables and starts dhcpd6' do
       it { is_expected.to enable_service('dhcpd6') }
       it { is_expected.to start_service('dhcpd6') }
-      it { is_expected.to_not run_execute('Run pre service start dhcpd6 configuration test.') }
+      it { is_expected.to_not run_ruby_block('Run pre service start dhcpd6 configuration test.') }
     end
   end
 end
